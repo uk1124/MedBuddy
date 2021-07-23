@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <%- include("../../partials/header"); -%>
+
+    <title>Page Title</title>
+  </head>
+ <link rel="stylesheet" href="/stylesheets/userDocSection/docfiles/patientList.css">
+ <link rel="stylesheet" href="/stylesheets/userDocSection/patFiles/docList.css">
+ 
+  <body id="body-pd" >
+    <%-include("../../partials/altNavbar"); -%>
+    <%-include("../../partials/altSidebar");-%>
+    <div class="content-block">
+        <div class="card">
+          <div id="patientList">
+          <table>
+            <thead>
+              <tr class="table100-head">
+                <th class="column1">S.N</th>
+                <th class="column1">Name</th>
+                <th class="column1">Specialisation</th>
+                <th class="column7"></th>
+
+              </tr>
+            </thead>
+            <tbody id="front">
+              <%for( var i=0;i<doctors.length;i++){%>
+              <tr>
+                <td class="column1"><%=i+1%></td>
+                <td class="column1"><%=user.firstName+" "+user.lastName%></td>
+                <td class="column1"><%=doctors[i].speciality%></td>
+                <td class="column7">
+                  <div class="appntBtn"><form  action="<%='/userDocSection/docList/docInfo/'+doctors[i]._id%>" method="GET">
+                    <% //if()%>
+                  <button type="submit" class="btn btn-success">Book Appointment</button>
+                </form></div>
+                <div class="cancelBtn"><form  action="" method="POST">
+                  <button type="submit" class="btn btn-danger">Cancel Appointment</button>
+                </form></div></td>
+
+              </tr>
+              <%}%>
+            </tbody>
+          </table>
+        </div>
+        </div>
+
+    </div>
+   
+       <%-include("../../partials/footer"); -%>
+
+        </body>
+
+</html>
+

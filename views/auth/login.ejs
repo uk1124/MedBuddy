@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <%- include("../partials/header"); -%>
+  <link rel="stylesheet" href="/stylesheets/authCSS/loginPage.css">
+
+<body>
+
+  <%- include("../partials/Navbar"); -%>
+  <div class="login-wrapper">
+    <form action="/userLogin" method="POST">
+      <div class="header-text">Login Here</div>
+      <input type="text" name="username" placeholder="username">
+      <input type="password" name="password" placeholder="password">
+      <button>login</button>
+    </form>
+  </div>
+</body>
+</html>

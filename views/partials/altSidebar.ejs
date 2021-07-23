@@ -1,0 +1,128 @@
+<!-- Adding EJS for dynamic sidebar -->
+<% if(currentUser) {%>
+
+<!-- ------------- SideBar for Patient ----------------->
+<% if(currentUser.role == 'patient') {%>
+
+<div class="l-navbar" id="nav-bar">
+  <nav class="nav">
+    <div>
+      <a href="/" class="nav__logo">
+        <i class="bx bx-layer nav__logo-icon"></i>
+        <span class="nav__logo-name">MedBuddy</span>
+      </a>
+
+      <div class="nav__list" id="patientMenu">
+        <a href="/userDocSection/patientDashboard" class="nav__link active">
+          <i class="bx bx-grid-alt nav__icon"></i>
+          <span class="nav__name">Dashboard</span>
+        </a>
+
+        <a href="/user/updateProfile" class="nav__link">
+          <i class="fas fa-user-edit fa-lg"></i>
+          <span class="nav__name">Update Profile</span>
+        </a>
+
+        <a href="/userDocSection/docList" class="nav__link">
+          <i class="bx bx-user nav__icon"></i>
+          <span class="nav__name">Doctors</span>
+        </a>
+
+        <a href="/userHospSection/initialPage" class="nav__link">
+          <i class="fab fa-wpexplorer fa-lg"></i>
+          <span class="nav__name">Explore Hospitals</span>
+        </a>
+
+        <a href="/about" class="nav__link">
+          <i class="fas fa-book-reader fa-lg"></i>
+          <span class="nav__name">About Us</span>
+        </a>
+
+        <a href="/contact" class="nav__link">
+          <i class="far fa-address-card fa-lg"></i>
+          <span class="nav__name">Contact Us</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<% } else if(currentUser.role == 'doctor') {%>
+<!-- ------------- SideBar for Doctor --------------- -->
+<div class="l-navbar" id="nav-bar">
+  <nav class="nav">
+    <div>
+      <a href="#" class="nav__logo">
+        <i class="bx bx-layer nav__logo-icon"></i>
+        <span class="nav__logo-name">MedBuddy</span>
+      </a>
+
+      <div class="nav__list" id="patientMenu">
+        <a href="#" class="nav__link active">
+          <i class="bx bx-grid-alt nav__icon"></i>
+          <span class="nav__name">Dashboard</span>
+        </a>
+
+        <a href="/user/updateProfile" class="nav__link">
+          <i class="fas fa-user-edit fa-lg"></i>
+          <span class="nav__name">Update Personal Profile</span>
+        </a>
+
+        <a href="/userDocSection/doctor/createProfile" class="nav__link">
+          <i class="fas fa-stethoscope fa-lg"></i>
+          <span class="nav__name">Create Professional Profile</span>
+        </a>
+
+        <a href="/userDocSection/patientList" class="nav__link">
+          <i class="bx bx-user nav__icon"></i>
+          <span class="nav__name">Patients</span>
+        </a>
+
+        <a href="/userHospSection/initialPage" class="nav__link">
+          <i class="fab fa-wpexplorer fa-lg"></i>
+          <span class="nav__name">Explore Hospitals</span>
+        </a>
+
+        <a href="/about" class="nav__link">
+          <i class="fas fa-book-reader fa-lg"></i>
+          <span class="nav__name">About Us</span>
+        </a>
+
+        <a href="/contact" class="nav__link">
+          <i class="far fa-address-card fa-lg"></i>
+          <span class="nav__name">Contact Us</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<% } %> <% } else { %>
+<div class="l-navbar" id="nav-bar">
+  <nav class="nav">
+    <div>
+      <a href="/" class="nav__logo">
+        <i class="bx bx-layer nav__logo-icon"></i>
+        <span class="nav__logo-name">MedBuddy</span>
+      </a>
+
+      <div class="nav__list" id="patientMenu">
+        <a href="/userHospSection/initialPage" class="nav__link">
+          <i class="fab fa-wpexplorer fa-lg"></i>
+          <span class="nav__name">Explore Hospitals</span>
+        </a>
+
+        <a href="/about" class="nav__link">
+          <i class="fas fa-book-reader fa-lg"></i>
+          <span class="nav__name">About Us</span>
+        </a>
+
+        <a href="/contact" class="nav__link">
+          <i class="far fa-address-card fa-lg"></i>
+          <span class="nav__name">Contact Us</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</div>
+<% } %>

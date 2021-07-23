@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("../partials/header"); -%>
+<link rel="stylesheet" href="/stylesheets/authCSS/signup.css">
+
+<body>
+  <%- include("../partials/Navbar"); -%>
+
+  <div class=" container signup-wrapper">
+    <form action="/register" method="POST">
+      <h2 style="text-align: center;">SignUp form</h2>
+      <hr>
+
+      <div class="form-row" id="personalInfo">
+        <div class="form-group col-md-12">
+          <h4>Personal Information:</h4>
+        </div>
+        <h5 class="form-group col-md-12">Your Name: </h5>
+        <div class="form-group col-md-6">
+          <input type="text" class="form-control" id="firstname" name="firstName" placeholder="First Name">
+        </div>
+        <div class="form-group col-md-6">
+          <input type="text" class="form-control" id="lastname" name="lastName" placeholder="Last Name">
+        </div>
+        <h5 class="form-group col-md-12">Your Address:</h5>
+        <div class="form-group col-md-12">
+          <input type="text" class="form-control" id="streetAddress" name="streetAddress" placeholder="Your Street Address">
+        </div>
+        <div class="form-group col-md-6">
+          <input type="text" name="city" class="form-control" id="inputCity" placeholder="City">
+        </div>
+        <div class="form-group col-md-4">
+          <select id="inputState" name="state" class="form-control">
+            <option selected>Select State</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <input type="number" name="zip" class="form-control" id="inputZip" placeholder="Zip Code">
+        </div>
+        <div class="form-group col-md-6">
+          <select class="form-control" name="gender" id="gender">
+            <option selected disabled> Gender </option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="others">Others</option>
+          </select> 
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-xs btn-success" id="goToSetup">Setup Your Account --></button>
+      <div id="setupInfo">
+        <div class="form-row">
+
+          <!-- username and passowrd -->
+          <div class="form-group col-md-12">
+            <h4>Set up Your Account: </h4>
+          </div>
+          <div class="form-group col-md-6">
+            <input type="text" name="username" class="form-control" id="inputUserName4" placeholder="Username">
+          </div>
+          <div class="form-group col-md-6">
+            <input type="password" name="password" class="form-control" id="inputPassword4" placeholder="Your Password">
+            <span><input type="checkbox" onclick="toggleShowPassword()"> Show Password</span>
+          </div>
+        </div>
+        <!-- other settings  -->
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <input type="email" name="email" class="form-control" placeholder="Email" required>
+          </div>
+          <div class="form-group col-md-6">
+            <input type="number" name="contactNumber" class="form-control" placeholder="Contact Number">
+          </div>
+          <div class="form-group col-md-12">
+            <input type="url" name='avatar'class="form-control" placeholder="Upload Photo(insert Url)">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <select class="form-control" name="userRole" id="userRole" placeholder="select">
+              <option selected disabled> Signing Up as </option>
+              <option value="patient">Patient</option>
+              <option value="doctor">Doctor</option>
+              <option value="hospAdmin">Hospital Management</option>
+            </select> 
+          </div>
+        </div>
+      </div>
+
+      <div id="submit">
+        <div class="form-group">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+              I accept <a href="#">Terms & Conditions</a>
+            </label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+      </div>
+    </form>
+  </div>
+
+  <%- include("../partials/footer"); -%>
+
+  <script>
+    function toggleShowPassword() {
+      var x = document.getElementById("inputPassword4");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+    $("#goToSetup").on('click', function(){
+      if($(this).text()=='Setup Your Account -->'){
+        $(this).html('Go Back To Personal Settings');
+        $(this).removeClass("btn btn-xs btn-success").addClass("btn btn-xs btn-warning");
+        $("#submit").show();
+      }
+      else{
+        $(this).html('Setup Your Account -->');
+        $(this).removeClass("btn btn-xs btn-warning").addClass("btn btn-xs btn-success")
+        $("#submit").hide()
+      }
+      $('#personalInfo').toggle();
+      $('#setupInfo').toggle();
+    });
+
+  </script>
+</body>
+</html>
+
